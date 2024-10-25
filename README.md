@@ -1,7 +1,7 @@
-
+# NoShow
 NoShowImages è un'applicazione di immagini sicura basata su Python, progettata per proteggere i tuoi file con crittografia avanzata. Con NoShow Images, puoi creare, aprire e condividere immagini protette con crittografia Fernet, garantendo la sicurezza dei tuoi dati sensibili.
 
-Funzionalità Principali
+# Funzionalità Principali
 Crittografia Sicura: Utilizza la libreria cryptography con l'algoritmo Fernet per proteggere i tuoi file di testo.
 
 Gestione di File: Apri, crea, salva e stampa file con estensione .Nspng, .Nsjpg etc...
