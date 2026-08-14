@@ -8,17 +8,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y python3-pip git zip unzip openjdk-17-jdk python3-dev
+          pip3 install --upgrade buildozer cython
       - name: Build with Buildozer
-        uses: kivy/buildozer-action@v1.22.0
-        with:
-          command: buildozer -v android debug
-          
-      - name: Upload APK Artifact
+        run: |
+          buildozer -v android debug
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: Snake-3310-APK
