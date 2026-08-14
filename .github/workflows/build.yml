@@ -22,8 +22,6 @@ jobs:
 
       - name: Build with Buildozer
         run: |
-          mkdir -p ~/.android
-          touch ~/.android/repositories.cfg
           buildozer -v android debug
 
       - name: Upload APK
