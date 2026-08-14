@@ -1,3 +1,4 @@
+
 name: Build Android APK
 
 on:
@@ -10,14 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt install -y python3-pip git zip unzip openjdk-17-jdk python3-dev
-          pip3 install --upgrade buildozer cython
+          sudo apt install -y build-essential libltdl-dev libffi-dev libssl-dev \
+            python3-dev git zip unzip openjdk-17-jdk zlib1g-dev ffmpeg \
+            libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev \
+            ccache autoconf libtool pkg-config
+          pip3 install --upgrade pip setuptools buildozer cython
+
       - name: Build with Buildozer
         run: |
           buildozer -v android debug
+
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
