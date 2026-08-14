@@ -22,7 +22,9 @@ jobs:
 
       - name: Build with Buildozer
         run: |
-          yes | buildozer -v android debug
+          mkdir -p ~/.android
+          touch ~/.android/repositories.cfg
+          buildozer -v android debug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
